@@ -26,6 +26,8 @@ export interface GameTranslations {
     // Nav
     authorTag: string;
     appTitle: string;
+    pageTitle: string;
+    pageDescription: string;
     navHome: string;
     navMonsters: string;
     navBook: string;
@@ -232,6 +234,8 @@ export interface GameTranslations {
     egorRole: string;
     vladBio: string;
     egorBio: string;
+    vladContributionTag: string;
+    egorContributionTag: string;
     timelineTitle: string;
     keyDecisionsLabel: string;
     gameEngineTitle: string;
@@ -313,6 +317,7 @@ export interface GameTranslations {
     vaultAccessDeniedDesc: string;
     vaultCloseBtn: string;
     vaultKeypadClear: string;
+    vaultRetryBtn: string;
 
     // Easter Egg Modals
     noahModalTitle: string;
@@ -327,6 +332,8 @@ export interface GameTranslations {
     throwingRock: string;
     mimicEscaping: string;
     mimicCaughtPlayer: string;
+    slimeSquirtedLabel: string;
+    mimicStoleSandwichTitle: string;
   };
   monsters: MonsterDossier[];
   chapters: BookChapter[];

@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { CustomMonster } from '../types';
-import { PlusCircle, Sparkles, Copy, Check, Wand2, BookOpen } from 'lucide-react';
+import { Sparkles, Copy, Check, Wand2, BookOpen } from 'lucide-react';
 import { playClickSound, playCraftSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
 
@@ -57,10 +57,6 @@ ${t.authorLabel}: ${monster.authorName || '---'}`;
     <section className="py-8 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a1a1a] text-white text-xs font-mono-code mb-3 uppercase font-bold tracking-wider">
-          <PlusCircle className="w-3.5 h-3.5 text-[#ffdc00]" />
-          <span>{t.tabCreator || 'CREATOR LAB'}</span>
-        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
           {t.creatorTitle}
         </h2>
@@ -221,7 +217,7 @@ ${t.authorLabel}: ${monster.authorName || '---'}`;
           <div className="pt-3 flex items-center gap-3">
             <button
               type="submit"
-              className="flex-1 py-3 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-sm uppercase transition-all shadow-[3px_3px_0px_0px_#1a1a1a] border-2 border-[#1a1a1a] cursor-pointer flex items-center justify-center gap-2"
+              className="flex-1 py-3 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-heading font-black text-sm uppercase transition-all shadow-[3px_3px_0px_0px_#1a1a1a] border-2 border-[#1a1a1a] cursor-pointer flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
               <span>{t.addToDiary}</span>

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ShieldAlert, Volume2, Flashlight, Lightbulb, ArrowRight } from 'lucide-react';
+import { Volume2, Flashlight, Lightbulb, ArrowRight } from 'lucide-react';
 import { playClickSound, playMonsterSound, playFlashlightSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
+import SafeImage from './SafeImage';
 
 interface MonsterGalleryProps {
   selectedMonsterId?: string;
@@ -34,10 +35,6 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
     <section className="py-6 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a1a1a] text-white text-xs font-mono-code mb-3 uppercase font-bold tracking-wider">
-          <ShieldAlert className="w-3.5 h-3.5 text-[#ff4e00]" />
-          <span>{t.galleryHeader}</span>
-        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
           {t.heroMonstersHeader}
         </h2>
@@ -56,7 +53,7 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
               onClick={() => handleSelectMonster(monster.id)}
               className={`p-3 sm:p-4 text-left transition-all relative border-3 border-[#1a1a1a] flex flex-col justify-between cursor-pointer group ${
                 isSelected
-                  ? 'bg-[#ff4e00] text-white shadow-[6px_6px_0px_0px_#1a1a1a] -translate-y-1'
+                  ? 'bg-[#ff4e00] text-sticker shadow-[6px_6px_0px_0px_#1a1a1a] -translate-y-1'
                   : 'bg-white text-[#1a1a1a] hover:bg-[#fff9e6] shadow-[3px_3px_0px_0px_#1a1a1a]'
               }`}
             >
@@ -64,13 +61,13 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
                 {/* Thumbnail Image */}
                 {monster.imageUrl && (
                   <div className="border-2 border-[#1a1a1a] overflow-hidden mb-2.5 bg-[#1a1a1a] relative aspect-square">
-                    <img
+                    <SafeImage
                       src={monster.imageUrl}
                       alt={monster.name}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      fallbackIcon={monster.icon}
+                      className="w-full h-full object-cover group-hover:scale-105"
                     />
-                    <span className={`absolute top-1.5 right-1.5 text-[9px] font-mono-code font-black px-1.5 py-0.5 border border-[#1a1a1a] uppercase ${
+                    <span className={`absolute top-1.5 right-1.5 text-[9px] font-mono-code font-black px-1.5 py-0.5 border border-[#1a1a1a] uppercase z-10 ${
                       isSelected ? 'bg-[#1a1a1a] text-white' : 'bg-[#ffdc00] text-[#1a1a1a]'
                     }`}>
                       {monster.dangerLevel}
@@ -109,7 +106,7 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
             </div>
             <div>
               <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-mono-code font-black bg-[#ff4e00] text-white px-2 py-0.5 border border-[#1a1a1a] uppercase">
+                <span className="text-xs font-mono-code font-black bg-[#ff4e00] text-sticker px-2 py-0.5 border border-[#1a1a1a] uppercase">
                   {t.dangerLevelLabel}: {activeMonster.dangerLevel}
                 </span>
                 <span className="text-xs font-mono-code text-slate-700 font-bold">
@@ -142,14 +139,15 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
           {activeMonster.imageUrl && (
             <div className="lg:col-span-5">
               <div className="border-3 border-[#1a1a1a] shadow-[6px_6px_0px_0px_#1a1a1a] overflow-hidden bg-[#1a1a1a]">
-                <div className="relative">
-                  <img
+                <div className="relative h-72 sm:h-80">
+                  <SafeImage
                     src={activeMonster.imageUrl}
                     alt={activeMonster.name}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-72 sm:h-80 object-cover"
+                    fallbackIcon={activeMonster.icon}
+                    fallbackClassName="text-6xl"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute bottom-2 left-2 bg-[#1a1a1a]/90 text-[#ffdc00] px-2.5 py-1 text-xs font-mono-code font-bold border border-white/40 flex items-center gap-1.5">
+                  <div className="absolute bottom-2 left-2 bg-[#1a1a1a]/90 text-[#ffdc00] px-2.5 py-1 text-xs font-mono-code font-bold border border-white/40 flex items-center gap-1.5 z-10">
                     <span>{activeMonster.name}</span>
                     <span>✨</span>
                   </div>
@@ -162,7 +160,7 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
           )}
 
           {/* Right Column: Key Details & Weaknesses */}
-          <div className={activeMonster.imageUrl ? 'lg:col-span-7 space-y-4' : 'lg:col-span-12 space-y-4'}>
+          <div className={activeMonster.imageUrl ? 'lg:col-span-7 space-y-6' : 'lg:col-span-12 space-y-6'}>
             
             {/* Appearance */}
             <div className="bg-[#faf8f2] border-2 border-[#1a1a1a] p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
@@ -230,7 +228,7 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
                 className={`px-5 py-3 border-2 border-white font-heading font-black text-xs sm:text-sm uppercase flex items-center gap-2 cursor-pointer transition-all shadow-[3px_3px_0px_0px_#fff] ${
                   mimicSpotlightOn
                     ? 'bg-[#ffdc00] text-[#1a1a1a]'
-                    : 'bg-[#ff4e00] text-white hover:bg-[#ff3b00]'
+                    : 'bg-[#ff4e00] text-sticker hover:bg-[#ff3b00]'
                 }`}
               >
                 <Flashlight className="w-4 h-4" />

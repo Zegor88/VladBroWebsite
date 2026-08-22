@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Hammer, Flame } from 'lucide-react';
+import { Flame } from 'lucide-react';
 import { playClickSound, playCraftSound, playApexFlareLaunchSound } from '../utils/soundEffects';
 import bunkerApexFlareImg from '../assets/images/bunker_apex_flare_1787032147716.jpg';
 import confetti from 'canvas-confetti';
 import { useLanguage } from '../i18n';
+import SafeImage from './SafeImage';
 
 interface BunkerWorkbenchProps {
   soundEnabled: boolean;
@@ -47,10 +48,6 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
     <section className="py-6 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a1a1a] text-white text-xs font-mono-code mb-3 uppercase font-bold tracking-wider">
-          <Hammer className="w-3.5 h-3.5 text-[#ffdc00]" />
-          <span>{t.workbenchHeader}</span>
-        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
           🛠️ {t.workbenchSub}
         </h2>
@@ -72,12 +69,12 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
               }}
               className={`p-4 text-left border-3 border-[#1a1a1a] transition-all relative cursor-pointer ${
                 isSelected
-                  ? 'bg-[#ff4e00] text-white shadow-[6px_6px_0px_0px_#1a1a1a] -translate-y-1'
+                  ? 'bg-[#ff4e00] text-sticker shadow-[6px_6px_0px_0px_#1a1a1a] -translate-y-1'
                   : 'bg-white text-[#1a1a1a] hover:bg-[#ffdc00] shadow-[3px_3px_0px_0px_#1a1a1a]'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className={`text-xs font-mono-code font-black ${isSelected ? 'text-white' : 'text-[#ff4e00]'}`}>
+                <span className={`text-xs font-mono-code font-black ${isSelected ? 'text-sticker' : 'text-[#ff4e00]'}`}>
                   {t.levelLabel} {lvl.level}
                 </span>
                 <span className="text-xl">{lvl.level === 1 ? '🪵' : lvl.level === 2 ? '🔩' : lvl.level === 3 ? '⚡' : '🚀'}</span>
@@ -170,7 +167,7 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
         {/* Banner with Rocket Artwork */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-8 pb-6 border-b border-white/20">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#ff4e00] text-white text-xs font-mono-code mb-2 uppercase font-black">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#ff4e00] text-sticker text-xs font-mono-code mb-2 uppercase font-black">
               <Flame className="w-3.5 h-3.5 text-[#ffdc00]" />
               <span>{t.flareStageLabel}</span>
             </div>
@@ -184,12 +181,15 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
 
           <div className="lg:col-span-5">
             <div className="border-2 border-white shadow-[4px_4px_0px_0px_#ffdc00] overflow-hidden bg-[#262626]">
-              <img
-                src={bunkerApexFlareImg}
-                alt="Apex Flare Launch"
-                referrerPolicy="no-referrer"
-                className="w-full h-44 sm:h-48 object-cover"
-              />
+              <div className="relative h-44 sm:h-48">
+                <SafeImage
+                  src={bunkerApexFlareImg}
+                  alt="Apex Flare Launch"
+                  fallbackIcon="🚀"
+                  fallbackBg="bg-[#262626]"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="p-1.5 bg-[#262626] text-[#ffdc00] text-center font-mono-code text-[10px] uppercase font-bold">
                 {t.flareTitle} 🌟
               </div>
@@ -244,7 +244,7 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
               disabled={!flareCrafted}
               className={`px-8 py-4 font-heading font-black text-base sm:text-lg uppercase border-3 border-white transition-all ${
                 flareCrafted
-                  ? 'bg-[#ff4e00] hover:bg-[#e04500] text-white shadow-[6px_6px_0px_0px_#ffdc00] cursor-pointer animate-pulse'
+                  ? 'bg-[#ff4e00] hover:bg-[#e04500] text-sticker shadow-[6px_6px_0px_0px_#ffdc00] cursor-pointer animate-pulse'
                   : 'bg-slate-800 text-slate-500 border-slate-700 cursor-not-allowed opacity-60'
               }`}
             >

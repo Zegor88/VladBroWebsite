@@ -53,6 +53,22 @@
   background-size: 20px 20px;
 }
 
+/* Sticker Text: white ink with a hard black outline, for white-on-orange
+   labels/badges/active-tabs where flat white alone fails contrast. Keeps
+   the comic-sticker voice instead of swapping to flat black text. */
+.text-sticker {
+  color: #ffffff;
+  text-shadow:
+    1px 1px 0 #1a1a1a,
+    -1px -1px 0 #1a1a1a,
+    1px -1px 0 #1a1a1a,
+    -1px 1px 0 #1a1a1a,
+    0 1px 0 #1a1a1a,
+    0 -1px 0 #1a1a1a,
+    1px 0 0 #1a1a1a,
+    -1px 0 0 #1a1a1a;
+}
+
 /* Hard Artistic Flair Shadows */
 .art-shadow-sm {
   box-shadow: 3px 3px 0px 0px #1a1a1a;

@@ -37,12 +37,6 @@ export const MONSTERS: MonsterDossier[] = [
 Ящик вздрогнул. У него внезапно выросли восемь ног, он брызнул чернилами и со всех щупалец бросился прочь в кусты.`,
     icon: '🐙',
     imageUrl: mimicImg,
-    colorScheme: {
-      badge: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
-      glow: 'from-purple-600/30 to-indigo-600/10',
-      border: 'border-purple-500/30 hover:border-purple-400',
-      bg: 'bg-purple-950/20',
-    }
   },
   {
     id: 'krep',
@@ -72,12 +66,6 @@ export const MONSTERS: MonsterDossier[] = [
 Крепёжщик истошно взвизгнул, зажмурил все десять глаз, выронил провод и кубарем скатился с покатой крыши бункера.`,
     icon: '🐰🕷️',
     imageUrl: krepImg,
-    colorScheme: {
-      badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-      glow: 'from-emerald-600/30 to-teal-600/10',
-      border: 'border-emerald-500/30 hover:border-emerald-400',
-      bg: 'bg-emerald-950/20',
-    }
   },
   {
     id: 'wrecker',
@@ -108,12 +96,6 @@ export const MONSTERS: MonsterDossier[] = [
 Гик потянул рычаг «Электро-перила Вкл.». Раздался треск синей дуги, вопль Крушителя, и тяжелая фигура с грохотом свалилась в мягкие кусты шиповника.`,
     icon: '🧟‍♂️',
     imageUrl: wreckerImg,
-    colorScheme: {
-      badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-      glow: 'from-amber-600/30 to-orange-600/10',
-      border: 'border-amber-500/30 hover:border-amber-400',
-      bg: 'bg-amber-950/20',
-    }
   },
   {
     id: 'hunter',
@@ -146,12 +128,6 @@ export const MONSTERS: MonsterDossier[] = [
 Гик упал в траву и задержал дыхание. Поскольку утром он принял душ и надел чистую рубашку, Охотник не почуял запаха. Ящер глухо прорычал в темноту и ушел крушить джунгли дальше.`,
     icon: '🦎',
     imageUrl: hunterImg,
-    colorScheme: {
-      badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
-      glow: 'from-rose-600/30 to-red-600/10',
-      border: 'border-rose-500/30 hover:border-rose-400',
-      bg: 'bg-rose-950/20',
-    }
   }
 ];
 

@@ -9,6 +9,8 @@ export const ruTranslations: GameTranslations = {
   ui: {
     authorTag: 'ВЛАД (10 ЛЕТ) & ПАПА',
     appTitle: 'SURVIVAL NIGHTS',
+    pageTitle: 'Survival Nights — Дневник Гика | Игра Влада и Егора',
+    pageDescription: 'Интерактивный сайт игры «Survival Nights»: книга выживания, галерея монстров, бункер и история создания.',
     navHome: 'Главная',
     navMonsters: '4 Монстра',
     navBook: 'Дневник',
@@ -206,6 +208,8 @@ export const ruTranslations: GameTranslations = {
     egorRole: 'Папа, нарративный дизайнер, архитектор GDD & разработчик',
     vladBio: 'Придумал концепцию «игры про умное выживание без скримеров», механику тени Мимика, десятиглазого Крепёжщика и засады Крушителя.',
     egorBio: 'Помогает сыну превратить яркие фантазии в стройный игровой мир, профессиональный дизайн-документ и рабочий прототип на Godot 4.',
+    vladContributionTag: 'Идея, лор, дизайн монстров и механик',
+    egorContributionTag: 'Архитектура GDD, код Godot 4 & веб-версия',
     timelineTitle: 'Хронология разработки проекта',
     keyDecisionsLabel: 'Ключевые решения этапа:',
     gameEngineTitle: 'Движок и технологии разработки',
@@ -284,6 +288,7 @@ export const ruTranslations: GameTranslations = {
     vaultAccessDeniedDesc: 'Личный бункер находится в режиме консервации. Система авторизации и персональные бункеры будут доступны в ближайших обновлениях!',
     vaultCloseBtn: 'Вернуться на базу',
     vaultKeypadClear: 'СБРОС',
+    vaultRetryBtn: 'Попробовать снова',
 
     // Easter Egg Modals
     noahModalTitle: 'ПАСХАЛКА «НОЕВ КОВЧЕГ» 🚁🏝️',
@@ -298,6 +303,8 @@ export const ruTranslations: GameTranslations = {
     throwingRock: 'Бросаем камень...',
     mimicEscaping: 'Мимик испугался, брызнул слизью и убегает!',
     mimicCaughtPlayer: 'Ой! Это был обычный предмет, а настоящий Мимик выскочил и съел твой бутерброд!',
+    slimeSquirtedLabel: '🟢 СПРЫСНУЛ СЛИЗЬ!',
+    mimicStoleSandwichTitle: 'МИМИК УКРАЛ ТВОЙ БУТЕРБРОД!',
   },
   monsters: MONSTERS,
   chapters: BOOK_CHAPTERS,

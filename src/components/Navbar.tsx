@@ -37,7 +37,7 @@ export default function Navbar({
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b-2 border-[#1a1a1a] shadow-xs">
+    <header className="sticky top-0 z-50 bg-white border-b-2 border-[#1a1a1a] shadow-[0_2px_0px_0px_#1a1a1a]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12 sm:h-14">
           
@@ -70,14 +70,14 @@ export default function Navbar({
                   onClick={() => handleNavClick(item.id)}
                   className={`flex items-center gap-1.5 px-2.5 py-1 text-xs font-heading font-black uppercase transition-all cursor-pointer ${
                     isActive
-                      ? 'border-2 border-[#1a1a1a] bg-[#ff4e00] text-white shadow-[2px_2px_0px_0px_#1a1a1a]'
+                      ? 'border-2 border-[#1a1a1a] bg-[#ff4e00] text-sticker shadow-[2px_2px_0px_0px_#1a1a1a]'
                       : 'border-2 border-transparent text-[#1a1a1a] hover:bg-[#ffdc00] hover:border-[#1a1a1a]'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   <span>{item.label}</span>
                   {item.badge && (
-                    <span className={`text-[10px] px-1 font-mono-code ${isActive ? 'bg-white/20 text-white' : 'bg-neutral-100 text-neutral-600'}`}>
+                    <span className={`text-[10px] px-1 font-mono-code ${isActive ? 'bg-[#1a1a1a] text-white' : 'bg-neutral-100 text-neutral-600'}`}>
                       {item.badge}
                     </span>
                   )}
@@ -105,7 +105,7 @@ export default function Navbar({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#fdfcf8] border-b-2 border-[#1a1a1a] px-3 pt-2 pb-3 space-y-1.5 shadow-md">
+        <div className="lg:hidden bg-[#fdfcf8] border-b-2 border-[#1a1a1a] px-3 pt-2 pb-3 space-y-1.5 shadow-[0_4px_0px_0px_#1a1a1a]">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -115,7 +115,7 @@ export default function Navbar({
                 onClick={() => handleNavClick(item.id)}
                 className={`w-full flex items-center justify-between px-3 py-2 border-2 border-[#1a1a1a] font-heading font-black text-xs uppercase transition-all ${
                   isActive
-                    ? 'bg-[#ff4e00] text-white shadow-[2px_2px_0px_0px_#1a1a1a]'
+                    ? 'bg-[#ff4e00] text-sticker shadow-[2px_2px_0px_0px_#1a1a1a]'
                     : 'bg-white text-[#1a1a1a] hover:bg-[#ffdc00]'
                 }`}
               >

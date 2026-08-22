@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ShadowDetectorGame from './ShadowDetectorGame';
 import SurvivalQuiz from './SurvivalQuiz';
 import MonsterCreator from './MonsterCreator';
-import { Sparkles, Flashlight, BrainCircuit, PlusCircle } from 'lucide-react';
+import { Flashlight, BrainCircuit, PlusCircle } from 'lucide-react';
 import { playClickSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
 
@@ -24,10 +24,6 @@ export default function GamesHub({ soundEnabled, defaultGame = 'detector' }: Gam
     <div className="py-6 sm:py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a1a1a] text-white text-xs font-mono-code mb-3 uppercase font-bold tracking-wider">
-          <Sparkles className="w-3.5 h-3.5 text-[#ffdc00]" />
-          <span>{t.badgeGames || 'MINI-GAMES & LABS'}</span>
-        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
           🎮 {t.gamesTitle}
         </h2>
@@ -42,7 +38,7 @@ export default function GamesHub({ soundEnabled, defaultGame = 'detector' }: Gam
           onClick={() => handleSelectGame('detector')}
           className={`p-4 border-3 border-[#1a1a1a] font-heading font-black text-sm sm:text-base uppercase flex items-center justify-center gap-2 transition-all cursor-pointer ${
             activeGame === 'detector'
-              ? 'bg-[#ff4e00] text-white shadow-[5px_5px_0px_0px_#1a1a1a] -translate-y-1'
+              ? 'bg-[#ff4e00] text-sticker shadow-[5px_5px_0px_0px_#1a1a1a] -translate-y-1'
               : 'bg-white text-[#1a1a1a] hover:bg-[#ffdc00] shadow-[3px_3px_0px_0px_#1a1a1a]'
           }`}
         >
@@ -54,7 +50,7 @@ export default function GamesHub({ soundEnabled, defaultGame = 'detector' }: Gam
           onClick={() => handleSelectGame('quiz')}
           className={`p-4 border-3 border-[#1a1a1a] font-heading font-black text-sm sm:text-base uppercase flex items-center justify-center gap-2 transition-all cursor-pointer ${
             activeGame === 'quiz'
-              ? 'bg-[#ff4e00] text-white shadow-[5px_5px_0px_0px_#1a1a1a] -translate-y-1'
+              ? 'bg-[#ff4e00] text-sticker shadow-[5px_5px_0px_0px_#1a1a1a] -translate-y-1'
               : 'bg-white text-[#1a1a1a] hover:bg-[#ffdc00] shadow-[3px_3px_0px_0px_#1a1a1a]'
           }`}
         >
@@ -66,7 +62,7 @@ export default function GamesHub({ soundEnabled, defaultGame = 'detector' }: Gam
           onClick={() => handleSelectGame('creator')}
           className={`p-4 border-3 border-[#1a1a1a] font-heading font-black text-sm sm:text-base uppercase flex items-center justify-center gap-2 transition-all cursor-pointer ${
             activeGame === 'creator'
-              ? 'bg-[#ff4e00] text-white shadow-[5px_5px_0px_0px_#1a1a1a] -translate-y-1'
+              ? 'bg-[#ff4e00] text-sticker shadow-[5px_5px_0px_0px_#1a1a1a] -translate-y-1'
               : 'bg-white text-[#1a1a1a] hover:bg-[#ffdc00] shadow-[3px_3px_0px_0px_#1a1a1a]'
           }`}
         >

@@ -17,12 +17,6 @@ export interface MonsterDossier {
   storySnippet: string;
   icon: string;
   imageUrl?: string;
-  colorScheme: {
-    badge: string;
-    glow: string;
-    border: string;
-    bg: string;
-  };
 }
 
 export interface BookChapter {

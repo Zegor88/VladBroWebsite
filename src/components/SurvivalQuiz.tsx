@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrainCircuit, RotateCcw, ArrowRight } from 'lucide-react';
+import { RotateCcw, ArrowRight } from 'lucide-react';
 import { playClickSound, playCraftSound } from '../utils/soundEffects';
 import confetti from 'canvas-confetti';
 import { useLanguage } from '../i18n';
@@ -73,10 +73,6 @@ export default function SurvivalQuiz({ soundEnabled }: { soundEnabled: boolean }
   return (
     <section className="py-8 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a1a1a] text-white text-xs font-mono-code mb-3 uppercase font-bold tracking-wider">
-          <BrainCircuit className="w-3.5 h-3.5 text-[#ffdc00]" />
-          <span>{t.quizBadge}</span>
-        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
           {t.quizTitle}
         </h2>
@@ -153,7 +149,7 @@ export default function SurvivalQuiz({ soundEnabled }: { soundEnabled: boolean }
               <div className="flex justify-end pt-2">
                 <button
                   onClick={handleNext}
-                  className="px-6 py-3 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-sm uppercase transition-all shadow-[3px_3px_0px_0px_#1a1a1a] border-2 border-[#1a1a1a] cursor-pointer flex items-center gap-2"
+                  className="px-6 py-3 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-heading font-black text-sm uppercase transition-all shadow-[3px_3px_0px_0px_#1a1a1a] border-2 border-[#1a1a1a] cursor-pointer flex items-center gap-2"
                 >
                   <span>{currentIdx === quizQuestions.length - 1 ? t.viewResults : t.nextQuestion}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -188,7 +184,7 @@ export default function SurvivalQuiz({ soundEnabled }: { soundEnabled: boolean }
             <div className="flex items-center justify-center gap-3 pt-4">
               <button
                 onClick={handleRestart}
-                className="px-6 py-3 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-sm uppercase transition-all shadow-[3px_3px_0px_0px_#1a1a1a] border-2 border-[#1a1a1a] cursor-pointer flex items-center gap-2"
+                className="px-6 py-3 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-heading font-black text-sm uppercase transition-all shadow-[3px_3px_0px_0px_#1a1a1a] border-2 border-[#1a1a1a] cursor-pointer flex items-center gap-2"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>{t.retakeQuiz}</span>

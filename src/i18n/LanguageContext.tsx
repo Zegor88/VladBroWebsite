@@ -59,11 +59,20 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   };
 
+  const currentLocale = translationsMap[language] || enTranslations;
+
   useEffect(() => {
     document.documentElement.lang = language;
-  }, [language]);
+    document.title = currentLocale.ui.pageTitle;
 
-  const currentLocale = translationsMap[language] || enTranslations;
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', currentLocale.ui.pageDescription);
+  }, [language, currentLocale]);
 
   const value: LanguageContextValue = {
     language,

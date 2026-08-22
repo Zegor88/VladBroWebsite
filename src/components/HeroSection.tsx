@@ -1,6 +1,7 @@
-import { BookOpen, ShieldAlert, Gamepad2, ArrowRight, Lock, KeyRound } from 'lucide-react';
+import { BookOpen, ArrowRight, Lock, KeyRound } from 'lucide-react';
 import { playClickSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
+import SafeImage from './SafeImage';
 
 interface HeroSectionProps {
   onNavigate: (tab: string) => void;
@@ -37,7 +38,7 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
                 if (soundEnabled) playClickSound();
                 if (onOpenVaultDoor) onOpenVaultDoor();
               }}
-              className="w-full sm:w-auto px-7 py-4 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-base sm:text-lg uppercase border-3 border-[#1a1a1a] shadow-[6px_6px_0px_0px_#1a1a1a] hover:shadow-[8px_8px_0px_0px_#1a1a1a] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 cursor-pointer group"
+              className="w-full sm:w-auto px-7 py-4 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-heading font-black text-base sm:text-lg uppercase border-3 border-[#1a1a1a] shadow-[6px_6px_0px_0px_#1a1a1a] hover:shadow-[8px_8px_0px_0px_#1a1a1a] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 cursor-pointer group"
             >
               <Lock className="w-5 h-5 text-[#ffdc00] group-hover:rotate-12 transition-transform" />
               <span>{t.vaultButton}</span>
@@ -46,19 +47,19 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
 
             <button
               onClick={() => handleNav('book')}
-              className="w-full sm:w-auto px-6 py-4 bg-white hover:bg-[#fff9e6] text-[#1a1a1a] font-heading font-black text-sm sm:text-base uppercase border-3 border-[#1a1a1a] shadow-[5px_5px_0px_0px_#1a1a1a] hover:shadow-[7px_7px_0px_0px_#1a1a1a] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-5 py-2.5 bg-transparent hover:bg-white text-[#1a1a1a] font-heading font-black text-sm uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a] hover:shadow-[3px_3px_0px_0px_#1a1a1a] transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <BookOpen className="w-5 h-5 text-[#ff4e00]" />
+              <BookOpen className="w-4 h-4 text-[#ff4e00]" />
               <span>{t.heroReadBookBtn}</span>
             </button>
           </div>
         </div>
 
         {/* 3 Main Pillars of the Game */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {/* Pillar 1 */}
-          <div className="bg-white border-3 border-[#1a1a1a] p-6 shadow-[6px_6px_0px_0px_#1a1a1a]">
-            <div className="w-12 h-12 bg-[#ff4e00] text-white border-2 border-[#1a1a1a] flex items-center justify-center text-2xl mb-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+          <div className="bg-white border-2 border-[#1a1a1a] p-4 shadow-[2px_2px_0px_0px_#1a1a1a]">
+            <div className="w-10 h-10 bg-[#ff4e00] text-white border-2 border-[#1a1a1a] flex items-center justify-center text-xl mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
               🧠
             </div>
             <h3 className="font-heading font-black text-xl text-[#1a1a1a] uppercase mb-2">
@@ -70,8 +71,8 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
           </div>
 
           {/* Pillar 2 */}
-          <div className="bg-white border-3 border-[#1a1a1a] p-6 shadow-[6px_6px_0px_0px_#1a1a1a]">
-            <div className="w-12 h-12 bg-[#ffdc00] text-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center text-2xl mb-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+          <div className="bg-white border-2 border-[#1a1a1a] p-4 shadow-[2px_2px_0px_0px_#1a1a1a]">
+            <div className="w-10 h-10 bg-[#ffdc00] text-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center text-xl mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
               🐙
             </div>
             <h3 className="font-heading font-black text-xl text-[#1a1a1a] uppercase mb-2">
@@ -83,8 +84,8 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
           </div>
 
           {/* Pillar 3 */}
-          <div className="bg-white border-3 border-[#1a1a1a] p-6 shadow-[6px_6px_0px_0px_#1a1a1a]">
-            <div className="w-12 h-12 bg-[#00e5ff] text-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center text-2xl mb-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
+          <div className="bg-white border-2 border-[#1a1a1a] p-4 shadow-[2px_2px_0px_0px_#1a1a1a]">
+            <div className="w-10 h-10 bg-[#00e5ff] text-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center text-xl mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
               🚀
             </div>
             <h3 className="font-heading font-black text-xl text-[#1a1a1a] uppercase mb-2">
@@ -97,7 +98,7 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
         </div>
 
         {/* 4 Monsters Quick Teaser Cards */}
-        <div className="mb-12">
+        <div>
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-heading font-black text-xl sm:text-2xl text-[#1a1a1a] uppercase flex items-center gap-2">
               <span>👾</span> {t.heroMonstersHeader}
@@ -119,14 +120,14 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
                 className="bg-white hover:bg-[#fff9e6] border-3 border-[#1a1a1a] p-3 text-left shadow-[5px_5px_0px_0px_#1a1a1a] hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between group"
               >
                 <div>
-                  <div className="border-2 border-[#1a1a1a] overflow-hidden mb-3 bg-[#1a1a1a] relative">
-                    <img
-                      src={monster.imageUrl}
+                  <div className="border-2 border-[#1a1a1a] overflow-hidden mb-3 bg-[#1a1a1a] relative h-36">
+                    <SafeImage
+                      src={monster.imageUrl!}
                       alt={monster.name}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300"
+                      fallbackIcon={monster.icon}
+                      className="w-full h-full object-cover group-hover:scale-105"
                     />
-                    <span className="absolute top-2 right-2 text-[10px] font-mono-code font-black bg-[#ff4e00] text-white px-2 py-0.5 border border-[#1a1a1a] uppercase shadow-[1px_1px_0px_0px_#000]">
+                    <span className="absolute top-2 right-2 text-[10px] font-mono-code font-black bg-[#ff4e00] text-sticker px-2 py-0.5 border border-[#1a1a1a] uppercase shadow-[1px_1px_0px_0px_#000] z-10">
                       {monster.dangerLevel}
                     </span>
                   </div>
@@ -142,25 +143,6 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
               </button>
             ))}
           </div>
-        </div>
-
-        {/* Action Buttons Hub */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <button
-            onClick={() => handleNav('monsters')}
-            className="px-6 py-3.5 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-base uppercase border-3 border-[#1a1a1a] shadow-[5px_5px_0px_0px_#1a1a1a] hover:shadow-[7px_7px_0px_0px_#1a1a1a] hover:-translate-y-0.5 transition-all flex items-center gap-2 cursor-pointer"
-          >
-            <ShieldAlert className="w-5 h-5" />
-            <span>{t.heroMonstersHeader} →</span>
-          </button>
-
-          <button
-            onClick={() => handleNav('games')}
-            className="px-6 py-3.5 bg-[#ffdc00] hover:bg-[#ffe633] text-[#1a1a1a] font-heading font-black text-base uppercase border-3 border-[#1a1a1a] shadow-[5px_5px_0px_0px_#1a1a1a] hover:shadow-[7px_7px_0px_0px_#1a1a1a] hover:-translate-y-0.5 transition-all flex items-center gap-2 cursor-pointer"
-          >
-            <Gamepad2 className="w-5 h-5 text-[#1a1a1a]" />
-            <span>{t.navGames} 🎮</span>
-          </button>
         </div>
 
       </div>

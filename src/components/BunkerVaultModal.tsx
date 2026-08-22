@@ -50,7 +50,7 @@ export default function BunkerVaultModal({ isOpen, onClose, soundEnabled = false
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#0a0e14]/90 backdrop-blur-md animate-fade-in">
-      <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-[#121922] border-4 border-[#1a1a1a] shadow-[12px_12px_0px_0px_#ff4e00] text-[#f4f1ea] rounded-xs flex flex-col">
+      <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-[#121922] border-4 border-[#1a1a1a] shadow-[12px_12px_0px_0px_#ff4e00] text-[#f4f1ea] flex flex-col">
         
         {/* Top Header Bar */}
         <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#1a2332] border-b-3 border-[#1a1a1a]">
@@ -165,7 +165,7 @@ export default function BunkerVaultModal({ isOpen, onClose, soundEnabled = false
                     <button
                       type="button"
                       onClick={() => handleSubmit()}
-                      className="py-2.5 bg-[#ff4e00] hover:bg-[#e04500] text-white font-mono-code font-black text-xs uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#000] cursor-pointer transition-all"
+                      className="py-2.5 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-mono-code font-black text-xs uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#000] cursor-pointer transition-all"
                     >
                       ENTER ↵
                     </button>
@@ -216,11 +216,11 @@ export default function BunkerVaultModal({ isOpen, onClose, soundEnabled = false
                     className="px-4 py-2.5 bg-[#2c3d56] hover:bg-[#394f6e] text-white font-mono-code font-black text-xs uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#000] cursor-pointer flex items-center justify-center gap-1.5"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
-                    <span>Попробовать снова</span>
+                    <span>{t.vaultRetryBtn}</span>
                   </button>
                   <button
                     onClick={handleClose}
-                    className="px-5 py-2.5 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-xs uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#000] cursor-pointer"
+                    className="px-5 py-2.5 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-heading font-black text-xs uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#000] cursor-pointer"
                   >
                     {t.vaultCloseBtn}
                   </button>

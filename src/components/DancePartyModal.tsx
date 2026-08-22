@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { X, Sparkles, Gift, Volume2, Radio } from 'lucide-react';
+import { X, Sparkles, Gift, Volume2 } from 'lucide-react';
 import { startDancePartyMusic, stopDancePartyMusic } from '../utils/soundEffects';
 import confetti from 'canvas-confetti';
 import { useLanguage } from '../i18n';
@@ -70,11 +70,6 @@ export default function DancePartyModal({ isOpen, onClose, soundEnabled }: Dance
 
         {/* Header Title */}
         <div className="text-center mb-6 relative">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a1a1a] text-white text-xs font-mono-code font-black uppercase mb-2">
-            <Radio className="w-3.5 h-3.5 text-[#ffdc00]" />
-            <span>{t.danceRadioStation}</span>
-          </div>
-
           <h3 className="font-heading font-black text-2xl sm:text-4xl text-[#1a1a1a] uppercase tracking-wide">
             🎉 {t.danceModalTitle} 🎉
           </h3>
@@ -143,7 +138,7 @@ export default function DancePartyModal({ isOpen, onClose, soundEnabled }: Dance
 
           <button
             onClick={onClose}
-            className="px-5 py-2.5 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-xs sm:text-sm uppercase border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] transition-all cursor-pointer"
+            className="px-5 py-2.5 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-heading font-black text-xs sm:text-sm uppercase border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] transition-all cursor-pointer"
           >
             {t.returnToBunker}
           </button>

@@ -8,6 +8,8 @@ export const srTranslations: GameTranslations = {
   ui: {
     authorTag: 'VLAD (10 GODINA) & TATA',
     appTitle: 'SURVIVAL NIGHTS',
+    pageTitle: 'Survival Nights — Gikov dnevnik | Igra Vlada i tate',
+    pageDescription: 'Interaktivni sajt igre "Survival Nights": dnevnik preživljavanja, galerija čudovišta, bunker i priča o nastanku.',
     navHome: 'Početna',
     navMonsters: '4 Čudovišta',
     navBook: 'Dnevnik',
@@ -205,6 +207,8 @@ export const srTranslations: GameTranslations = {
     egorRole: 'Tata, narativni dizajner, arhitekta GDD & programer',
     vladBio: 'Smislio koncept "pametnog preživljavanja bez straha", mehaniku senke Mimika, desetookog Krepa i zasede Rušitelja.',
     egorBio: 'Pomaže sinu da maštovite ideje pretvori u skladan svet, profesionalni dizajn dokument i prototip u Godot 4.',
+    vladContributionTag: 'Ideja, lor, dizajn čudovišta i mehanika',
+    egorContributionTag: 'Arhitektura GDD, Godot 4 kod & veb verzija',
     timelineTitle: 'Hronologija razvoja projekta',
     keyDecisionsLabel: 'Ključne odluke faze:',
     gameEngineTitle: 'Tehnologije i pokretač igre',
@@ -283,6 +287,7 @@ export const srTranslations: GameTranslations = {
     vaultAccessDeniedDesc: 'Lični bunker je u režimu konzervacije. Sistem autorizacije i lični bunkeri biće dostupni u sledećim ažuriranjima!',
     vaultCloseBtn: 'Povratak u bazu',
     vaultKeypadClear: 'OBRIŠI',
+    vaultRetryBtn: 'Pokušaj ponovo',
 
     // Easter Egg Modals
     noahModalTitle: 'USKRŠNJE JAJE «NOJEVA BARKA» 🚁🏝️',
@@ -297,6 +302,8 @@ export const srTranslations: GameTranslations = {
     throwingRock: 'Bacanje kamena...',
     mimicEscaping: 'Mimik se uplašio, poprskao sluz i beži!',
     mimicCaughtPlayer: 'Ups! To je bio običan predmet, a pravi Mimik je iskočio i pojeo tvoj sendvič!',
+    slimeSquirtedLabel: '🟢 ŠPRICNUO SLUZ!',
+    mimicStoleSandwichTitle: 'MIMIK JE POJEO TVOJ SENDVIČ!',
   },
   monsters: [
     {
@@ -331,12 +338,6 @@ Od druge — obris ogromne hobotnice sa pokretnim pipcima.
 Kutija je poskočila, izrasle su joj noge, pljunula je ljubičasto mastilo i pobegla u džunglu.`,
       icon: '🐙',
       imageUrl: mimicImg,
-      colorScheme: {
-        badge: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
-        glow: 'from-purple-600/30 to-indigo-600/10',
-        border: 'border-purple-500/30 hover:border-purple-400',
-        bg: 'bg-purple-950/20',
-      }
     },
     {
       id: 'krep',
@@ -366,12 +367,6 @@ Deset crvenih očiju zatreptalo je uglas.
 Krep je piskavo zacvilio, pokrio oči šapama, ispustio žicu i otkotrljao se sa krova u žbunje.`,
       icon: '🐰🕷️',
       imageUrl: krepImg,
-      colorScheme: {
-        badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-        glow: 'from-emerald-600/30 to-teal-600/10',
-        border: 'border-emerald-500/30 hover:border-emerald-400',
-        bg: 'bg-emerald-950/20',
-      }
     },
     {
       id: 'wrecker',
@@ -402,12 +397,6 @@ Pod mesečinom je na gelenderu kule stajala prilika u kaputu sa svetlećim crven
 Gik je povukao polugu za struju. Plava varnica je pukla, Rušitelj je uzviknuo i pao sa visine u grmlje.`,
       icon: '🧟‍♂️',
       imageUrl: wreckerImg,
-      colorScheme: {
-        badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-        glow: 'from-amber-600/30 to-orange-600/10',
-        border: 'border-amber-500/30 hover:border-amber-400',
-        bg: 'bg-amber-950/20',
-      }
     },
     {
       id: 'hunter',
@@ -439,12 +428,6 @@ Gik se setio zlatnog pravila:
 Gik se spustio na travu i zadržao dah. Pošto se ujutru istuširao, Lovac ga nije osetio. Gušter je zarežao u tamu i otišao dalje.`,
       icon: '🦎',
       imageUrl: hunterImg,
-      colorScheme: {
-        badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
-        glow: 'from-rose-600/30 to-red-600/10',
-        border: 'border-rose-500/30 hover:border-rose-400',
-        bg: 'bg-rose-950/20',
-      }
     }
   ],
   chapters: [

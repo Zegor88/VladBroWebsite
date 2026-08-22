@@ -8,6 +8,8 @@ export const enTranslations: GameTranslations = {
   ui: {
     authorTag: 'VLAD (10 YEARS OLD) & DAD',
     appTitle: 'SURVIVAL NIGHTS',
+    pageTitle: 'Survival Nights — Geek\'s Journal | A Game by Vlad & Dad',
+    pageDescription: 'Interactive site for the game "Survival Nights": survival diary, monster gallery, bunker, and the story behind its creation.',
     navHome: 'Home',
     navMonsters: '4 Monsters',
     navBook: 'Journal',
@@ -205,6 +207,8 @@ export const enTranslations: GameTranslations = {
     egorRole: 'Dad, Narrative Designer, GDD Architect & Developer',
     vladBio: 'Created the concept of "smart survival without cheap horror", the Mimic shadow mechanic, the 10-eyed Krep, and the Wrecker watchtower ambush.',
     egorBio: 'Helps his son channel creative ideas into a cohesive game world, formal design documentation, and a working Godot 4 prototype.',
+    vladContributionTag: 'Ideas, lore, and monster & mechanic design',
+    egorContributionTag: 'GDD architecture, Godot 4 code & web version',
     timelineTitle: 'Project Development Timeline',
     keyDecisionsLabel: 'Key Stage Milestones:',
     gameEngineTitle: 'Engine & Tech Stack',
@@ -283,6 +287,7 @@ export const enTranslations: GameTranslations = {
     vaultAccessDeniedDesc: 'The personal bunker chamber is in lockdown mode. Authorization and personal vaults will be available in upcoming updates!',
     vaultCloseBtn: 'Return to Surface',
     vaultKeypadClear: 'CLEAR',
+    vaultRetryBtn: 'Try Again',
 
     // Easter Egg Modals
     noahModalTitle: "EASTER EGG «NOAH'S ARK» 🚁🏝️",
@@ -297,6 +302,8 @@ export const enTranslations: GameTranslations = {
     throwingRock: 'Throwing stone...',
     mimicEscaping: 'The Mimic panicked, sprayed slime, and scuttled away!',
     mimicCaughtPlayer: 'Oops! That was a harmless item, and the real Mimic jumped out and stole your snack!',
+    slimeSquirtedLabel: '🟢 SQUIRTED SLIME!',
+    mimicStoleSandwichTitle: 'THE MIMIC STOLE YOUR SANDWICH!',
   },
   monsters: [
     {
@@ -331,12 +338,6 @@ From the second — the distinct silhouette of a giant octopus with writhing arm
 The crate shuddered, suddenly sprouted eight limbs, sprayed purple ink, and scuttled away at full speed into the jungle.`,
       icon: '🐙',
       imageUrl: mimicImg,
-      colorScheme: {
-        badge: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
-        glow: 'from-purple-600/30 to-indigo-600/10',
-        border: 'border-purple-500/30 hover:border-purple-400',
-        bg: 'bg-purple-950/20',
-      }
     },
     {
       id: 'krep',
@@ -366,12 +367,6 @@ Ten red eyes blinked simultaneously.
 Krep let out an ear-piercing squeak, squeezed all ten eyes shut, dropped the wire, and tumbled off the roof into the shrubbery.`,
       icon: '🐰🕷️',
       imageUrl: krepImg,
-      colorScheme: {
-        badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-        glow: 'from-emerald-600/30 to-teal-600/10',
-        border: 'border-emerald-500/30 hover:border-emerald-400',
-        bg: 'bg-emerald-950/20',
-      }
     },
     {
       id: 'wrecker',
@@ -402,12 +397,6 @@ In the cold moonlight, a cloaked figure with glowing scarlet eyes was perched si
 Geek pulled the lever for «Tower Electric Rails ON». A brilliant blue spark cracked through the night, a roar echoed, and the massive figure plunged into the thorny bushes below.`,
       icon: '🧟‍♂️',
       imageUrl: wreckerImg,
-      colorScheme: {
-        badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-        glow: 'from-amber-600/30 to-orange-600/10',
-        border: 'border-amber-500/30 hover:border-amber-400',
-        bg: 'bg-amber-950/20',
-      }
     },
     {
       id: 'hunter',
@@ -440,12 +429,6 @@ Geek remembered the Professor's core survival protocol:
 Geek flattened into the wet moss and held his breath. Because he had showered and put on clean clothes that morning, the Hunter detected no human scent. The beast let out a low rumble and stomped off into the distance.`,
       icon: '🦎',
       imageUrl: hunterImg,
-      colorScheme: {
-        badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
-        glow: 'from-rose-600/30 to-red-600/10',
-        border: 'border-rose-500/30 hover:border-rose-400',
-        bg: 'bg-rose-950/20',
-      }
     }
   ],
   chapters: [

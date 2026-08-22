@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Bookmark, BookOpen, Share2, Check, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Bookmark, Share2, Check, ArrowRight } from 'lucide-react';
 import { playClickSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
+import SafeImage from './SafeImage';
 
 interface BookReaderProps {
   onOpenMonster: (monsterId: string) => void;
@@ -73,10 +74,6 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
     <section className="py-6 sm:py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a1a1a] text-white text-xs font-mono-code mb-3 uppercase font-bold tracking-wider">
-          <BookOpen className="w-3.5 h-3.5 text-[#ffdc00]" />
-          <span>{t.bookBadge}</span>
-        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
           📖 {t.bookTitle}
         </h2>
@@ -85,7 +82,7 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
         </p>
       </div>
 
-      {/* Chapter Carousel Buttons 1..16 */}
+      {/* Chapter Carousel Buttons 1..16 — one row on wide screens, wraps only when space truly runs out */}
       <div className="bg-white border-3 border-[#1a1a1a] p-3 sm:p-4 mb-6 shadow-[6px_6px_0px_0px_#1a1a1a]">
         <div className="text-xs font-mono-code font-black text-[#1a1a1a] uppercase mb-2">
           {t.selectChapter}:
@@ -103,7 +100,7 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
                 }}
                 className={`w-9 h-9 sm:w-10 sm:h-10 border-2 border-[#1a1a1a] font-heading font-black text-xs sm:text-sm flex items-center justify-center transition-all cursor-pointer relative ${
                   isCurrent
-                    ? 'bg-[#ff4e00] text-white shadow-[2px_2px_0px_0px_#1a1a1a] scale-105'
+                    ? 'bg-[#ff4e00] text-sticker shadow-[2px_2px_0px_0px_#1a1a1a] scale-105'
                     : 'bg-[#f4f1ea] hover:bg-[#ffdc00] text-[#1a1a1a]'
                 }`}
                 title={`${t.chapterLabel} ${ch.id}: ${ch.title}`}
@@ -132,29 +129,27 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <button
               onClick={toggleBookmark}
-              className={`p-2 border-2 border-[#1a1a1a] font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer ${
+              className={`w-11 h-11 flex items-center justify-center border-2 border-[#1a1a1a] transition-all cursor-pointer ${
                 bookmarkedChapter === chapter.id
-                  ? 'bg-[#ffdc00] text-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a]'
+                  ? 'bg-[#ffdc00] text-[#1a1a1a]'
                   : 'bg-[#f4f1ea] hover:bg-white text-[#1a1a1a]'
               }`}
-              title={t.bookmark}
+              title={bookmarkedChapter === chapter.id ? t.bookmarked : t.bookmark}
+              aria-label={bookmarkedChapter === chapter.id ? t.bookmarked : t.bookmark}
             >
-              <Bookmark className="w-4 h-4" />
-              <span className="hidden sm:inline">
-                {bookmarkedChapter === chapter.id ? t.bookmarked : t.bookmark}
-              </span>
+              <Bookmark className="w-3.5 h-3.5" />
             </button>
 
             <button
               onClick={copyChapterLink}
-              className="p-2 bg-[#f4f1ea] hover:bg-white border-2 border-[#1a1a1a] font-bold text-xs flex items-center gap-1.5 cursor-pointer transition-all"
-              title={t.share}
+              className="w-11 h-11 flex items-center justify-center bg-[#f4f1ea] hover:bg-white border-2 border-[#1a1a1a] text-[#1a1a1a] cursor-pointer transition-all"
+              title={copied ? t.copied : t.share}
+              aria-label={copied ? t.copied : t.share}
             >
-              {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Share2 className="w-4 h-4" />}
-              <span className="hidden sm:inline">{copied ? t.copied : t.share}</span>
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
             </button>
           </div>
         </div>
@@ -181,11 +176,12 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
           <div className="mt-8 p-4 bg-[#fff9e6] border-2 border-[#1a1a1a] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[4px_4px_0px_0px_#1a1a1a]">
             <div className="flex items-center gap-3">
               {monsterData.imageUrl ? (
-                <div className="w-14 h-14 border-2 border-[#1a1a1a] overflow-hidden flex-shrink-0 bg-white">
-                  <img
+                <div className="w-14 h-14 border-2 border-[#1a1a1a] overflow-hidden flex-shrink-0 bg-[#1a1a1a] relative">
+                  <SafeImage
                     src={monsterData.imageUrl}
                     alt={monsterData.name}
-                    referrerPolicy="no-referrer"
+                    fallbackIcon={monsterData.icon}
+                    fallbackClassName="text-2xl"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -209,7 +205,7 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
 
             <button
               onClick={() => onOpenMonster(monsterData.id)}
-              className="px-4 py-2 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-xs uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a] flex items-center gap-1 cursor-pointer transition-all flex-shrink-0"
+              className="px-4 py-2 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-heading font-black text-xs uppercase border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a] flex items-center gap-1 cursor-pointer transition-all flex-shrink-0"
             >
               <span>{t.openMonsterDossier}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -257,7 +253,7 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
           <button
             onClick={handleNext}
             disabled={currentChapterIndex === chapters.length - 1}
-            className="px-4 sm:px-6 py-3 border-2 border-[#1a1a1a] bg-[#ff4e00] hover:bg-[#e04500] disabled:opacity-30 text-white font-heading font-black text-xs sm:text-sm uppercase shadow-[3px_3px_0px_0px_#1a1a1a] flex items-center gap-1.5 cursor-pointer transition-all"
+            className="px-4 sm:px-6 py-3 border-2 border-[#1a1a1a] bg-[#ff4e00] hover:bg-[#e04500] disabled:opacity-30 text-sticker font-heading font-black text-xs sm:text-sm uppercase shadow-[3px_3px_0px_0px_#1a1a1a] flex items-center gap-1.5 cursor-pointer transition-all"
           >
             <span>{t.nextChapter}</span>
             <ChevronRight className="w-4 h-4" />

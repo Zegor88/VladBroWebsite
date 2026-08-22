@@ -32,7 +32,7 @@ export default function NoahModal({ isOpen, onClose, soundEnabled = false }: Noa
         </button>
 
         {/* Header Badge */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ff4e00] text-white text-xs font-mono-code font-black uppercase shadow-[2px_2px_0px_0px_#1a1a1a] mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ff4e00] text-sticker text-xs font-mono-code font-black uppercase shadow-[2px_2px_0px_0px_#1a1a1a] mb-3">
           <Plane className="w-4 h-4" />
           <span>SECRET DOSSIER • NOAH&apos;S REFUGE</span>
         </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Sparkles, Flashlight, Trophy, RotateCcw, Check, Disc } from 'lucide-react';
+import { Flashlight, Trophy, RotateCcw, Check, Disc } from 'lucide-react';
 import { playClickSound, playFlashlightSound, playMonsterSound } from '../utils/soundEffects';
 import mimicImg from '../assets/images/monster_mimic_1787032096973.jpg';
 import confetti from 'canvas-confetti';
@@ -130,10 +130,6 @@ export default function ShadowDetectorGame({ soundEnabled }: { soundEnabled: boo
   return (
     <section className="py-8 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a1a1a] text-white text-xs font-mono-code mb-3 uppercase font-bold tracking-wider shadow-[2px_2px_0px_0px_#ff4e00]">
-          <Sparkles className="w-3.5 h-3.5 text-[#ffdc00]" />
-          <span>{t.detectorBadge}</span>
-        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
           {t.detectorTitle}
         </h2>
@@ -165,7 +161,7 @@ export default function ShadowDetectorGame({ soundEnabled }: { soundEnabled: boo
             className={`px-4 py-2.5 text-xs sm:text-sm font-black transition-all flex items-center gap-2 border-2 border-[#1a1a1a] cursor-pointer shadow-[3px_3px_0px_0px_#1a1a1a] active:translate-y-0.5 ${
               flashlightOn
                 ? 'bg-[#ffdc00] text-[#1a1a1a]'
-                : 'bg-[#ff4e00] hover:bg-[#e04500] text-white'
+                : 'bg-[#ff4e00] hover:bg-[#e04500] text-sticker'
             }`}
           >
             <Flashlight className="w-4 h-4" />
@@ -216,7 +212,7 @@ export default function ShadowDetectorGame({ soundEnabled }: { soundEnabled: boo
                 {/* Mimic Escaping Slime trail Animation */}
                 {revealMimic && mimicEscaped && (
                   <div className="absolute -top-3 right-0 bg-[#00e676] text-[#004d40] text-[10px] font-mono-code font-black px-2 py-0.5 border border-[#1a1a1a] shadow-[2px_2px_0px_0px_#000] animate-bounce z-10">
-                    🟢 СПРЫСНУЛ СЛИЗЬ!
+                    {t.slimeSquirtedLabel}
                   </div>
                 )}
 
@@ -268,7 +264,7 @@ export default function ShadowDetectorGame({ soundEnabled }: { soundEnabled: boo
           <div className="flex items-center justify-center gap-3 pt-2">
             <button
               onClick={handleNextRound}
-              className="px-6 py-3 bg-[#ff4e00] hover:bg-[#e04500] text-white font-heading font-black text-sm uppercase transition-all shadow-[3px_3px_0px_0px_#1a1a1a] cursor-pointer flex items-center gap-2 border-2 border-[#1a1a1a]"
+              className="px-6 py-3 bg-[#ff4e00] hover:bg-[#e04500] text-sticker font-heading font-black text-sm uppercase transition-all shadow-[3px_3px_0px_0px_#1a1a1a] cursor-pointer flex items-center gap-2 border-2 border-[#1a1a1a]"
             >
               <Check className="w-4 h-4" />
               <span>{t.nextRound} ({round + 1})</span>
@@ -291,7 +287,7 @@ export default function ShadowDetectorGame({ soundEnabled }: { soundEnabled: boo
           <div className="bg-[#fff3e0] border-4 border-[#1a1a1a] p-6 sm:p-8 max-w-md shadow-[10px_10px_0px_0px_#ff4e00] text-center space-y-3 animate-bounce">
             <div className="text-5xl">🐙🥪😋</div>
             <h4 className="font-heading font-black text-xl sm:text-2xl text-[#d84315] uppercase">
-              МИМИК УКРАЛ ТВОЙ БУТЕРБРОД!
+              {t.mimicStoleSandwichTitle}
             </h4>
             <p className="font-serif-story text-slate-800 text-sm sm:text-base">
               {t.mimicCaughtPlayer}
