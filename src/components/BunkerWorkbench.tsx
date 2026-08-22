@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Flame } from 'lucide-react';
+import { Hammer, Axe, Radio, Zap, Rocket, DoorOpen, Shield, Lightbulb, Check, Lock } from 'lucide-react';
 import { playClickSound, playCraftSound, playApexFlareLaunchSound } from '../utils/soundEffects';
 import bunkerApexFlareImg from '../assets/images/bunker_apex_flare_1787032147716.jpg';
 import confetti from 'canvas-confetti';
@@ -18,6 +18,10 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
   const [launched, setLaunched] = useState<boolean>(false);
 
   const currentLevelData = workbenchLevels.find(l => l.level === selectedLevel) || workbenchLevels[0];
+
+  const LEVEL_ICONS = [Axe, Radio, Zap, Rocket];
+  const getLevelIcon = (level: number) => LEVEL_ICONS[level - 1] || Axe;
+  const CurrentLevelIcon = getLevelIcon(selectedLevel);
 
   const handleToggleIngredient = (id: string) => {
     if (soundEnabled) playClickSound();
@@ -48,8 +52,11 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
     <section className="py-6 sm:py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <div className="flex justify-center mb-2">
+          <Hammer className="w-8 h-8 sm:w-10 sm:h-10" />
+        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
-          🛠️ {t.workbenchSub}
+          {t.workbenchSub}
         </h2>
         <p className="text-slate-800 font-serif-story italic text-base sm:text-lg mt-2">
           {t.craftSub}
@@ -60,6 +67,7 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
         {workbenchLevels.map((lvl) => {
           const isSelected = selectedLevel === lvl.level;
+          const LevelIcon = getLevelIcon(lvl.level);
           return (
             <button
               key={lvl.level}
@@ -77,7 +85,7 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
                 <span className={`text-xs font-mono-code font-black ${isSelected ? 'text-sticker' : 'text-[#ff4e00]'}`}>
                   {t.levelLabel} {lvl.level}
                 </span>
-                <span className="text-xl">{lvl.level === 1 ? '🪵' : lvl.level === 2 ? '🔩' : lvl.level === 3 ? '⚡' : '🚀'}</span>
+                <LevelIcon className="w-5 h-5" />
               </div>
               <h4 className="font-heading font-black text-sm uppercase truncate">{lvl.name}</h4>
             </button>
@@ -89,8 +97,8 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
       <div className="bg-white border-3 border-[#1a1a1a] p-6 sm:p-8 shadow-[8px_8px_0px_0px_#1a1a1a] mb-10">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-3 border-[#1a1a1a] pb-4 mb-6">
           <div className="flex items-center gap-3">
-            <span className="text-4xl p-2 bg-[#ffdc00] border-2 border-[#1a1a1a]">
-              {selectedLevel === 1 ? '🪓' : selectedLevel === 2 ? '📻' : selectedLevel === 3 ? '⚡' : '🔮'}
+            <span className="p-3 bg-[#ffdc00] border-2 border-[#1a1a1a] flex items-center justify-center">
+              <CurrentLevelIcon className="w-8 h-8" />
             </span>
             <div>
               <span className="text-xs font-mono-code font-black text-[#ff4e00] uppercase">
@@ -111,13 +119,13 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           {/* Unlocked Rooms */}
           <div className="bg-[#faf8f2] border-2 border-[#1a1a1a] p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
-            <span className="text-xs font-mono-code font-black text-[#1a1a1a] uppercase block mb-2">
-              🚪 {t.roomsUnlocked}:
+            <span className="text-xs font-mono-code font-black text-[#1a1a1a] uppercase mb-2 flex items-center gap-1.5">
+              <DoorOpen className="w-3.5 h-3.5" /> {t.roomsUnlocked}:
             </span>
             <ul className="space-y-1 text-sm font-serif-story text-slate-800">
               {currentLevelData.unlockedRooms.map((r, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <span className="text-[#ff4e00] font-black">✓</span>
+                  <Check className="w-4 h-4 text-[#ff4e00] flex-shrink-0" />
                   <span>{r}</span>
                 </li>
               ))}
@@ -126,13 +134,13 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
 
           {/* Key Crafts */}
           <div className="bg-[#fff9e6] border-2 border-[#1a1a1a] p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
-            <span className="text-xs font-mono-code font-black text-[#1a1a1a] uppercase block mb-2">
-              🔨 {t.craftableItems}:
+            <span className="text-xs font-mono-code font-black text-[#1a1a1a] uppercase mb-2 flex items-center gap-1.5">
+              <Hammer className="w-3.5 h-3.5" /> {t.craftableItems}:
             </span>
             <ul className="space-y-1 text-sm font-serif-story text-slate-800">
               {currentLevelData.keyCrafts.map((c, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <span className="text-[#ff4e00] font-black">✓</span>
+                  <Check className="w-4 h-4 text-[#ff4e00] flex-shrink-0" />
                   <span>{c}</span>
                 </li>
               ))}
@@ -141,13 +149,13 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
 
           {/* Defense */}
           <div className="bg-[#e8f5e9] border-2 border-[#1a1a1a] p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
-            <span className="text-xs font-mono-code font-black text-[#1b5e20] uppercase block mb-2">
-              🛡️ {t.defenseUpgrades}:
+            <span className="text-xs font-mono-code font-black text-[#1b5e20] uppercase mb-2 flex items-center gap-1.5">
+              <Shield className="w-3.5 h-3.5" /> {t.defenseUpgrades}:
             </span>
             <ul className="space-y-1 text-sm font-serif-story text-slate-800">
               {currentLevelData.defenseUpgrades.map((d, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <span className="text-[#2e7d32] font-black">✓</span>
+                  <Check className="w-4 h-4 text-[#2e7d32] flex-shrink-0" />
                   <span>{d}</span>
                 </li>
               ))}
@@ -156,8 +164,8 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
         </div>
 
         {/* Level Note */}
-        <div className="p-3.5 bg-[#f4f1ea] border-2 border-[#1a1a1a] text-xs sm:text-sm font-mono-code font-bold text-slate-800">
-          💡 <strong>{t.marginNotes}:</strong> {currentLevelData.note}
+        <div className="p-3.5 bg-[#f4f1ea] border-2 border-[#1a1a1a] text-xs sm:text-sm font-mono-code font-bold text-slate-800 flex items-start gap-1.5">
+          <Lightbulb className="w-4 h-4 flex-shrink-0 mt-0.5" /> <span><strong>{t.marginNotes}:</strong> {currentLevelData.note}</span>
         </div>
       </div>
 
@@ -167,12 +175,8 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
         {/* Banner with Rocket Artwork */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center mb-8 pb-6 border-b border-white/20">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#ff4e00] text-sticker text-xs font-mono-code mb-2 uppercase font-black">
-              <Flame className="w-3.5 h-3.5 text-[#ffdc00]" />
-              <span>{t.flareStageLabel}</span>
-            </div>
-            <h3 className="font-heading font-black text-2xl sm:text-4xl uppercase">
-              🚀 {t.flareTitle}
+            <h3 className="font-heading font-black text-2xl sm:text-4xl uppercase flex items-start gap-2.5">
+              <Rocket className="w-7 h-7 sm:w-9 sm:h-9 flex-shrink-0 mt-1" /> <span>{t.flareTitle}</span>
             </h3>
             <p className="text-slate-300 font-serif-story text-sm sm:text-base mt-2 leading-relaxed">
               {t.flareDesc}
@@ -191,7 +195,7 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
                 />
               </div>
               <div className="p-1.5 bg-[#262626] text-[#ffdc00] text-center font-mono-code text-[10px] uppercase font-bold">
-                {t.flareTitle} 🌟
+                {t.flareTitle}
               </div>
             </div>
           </div>
@@ -213,10 +217,10 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-2xl">{item.icon}</span>
-                  <span className={`text-xs font-mono-code font-black px-2 py-0.5 border ${
+                  <span className={`text-xs font-mono-code font-black px-2 py-0.5 border flex items-center gap-1 ${
                     isInstalled ? 'bg-[#1a1a1a] text-white border-[#1a1a1a]' : 'bg-black text-slate-400 border-slate-700'
                   }`}>
-                    {isInstalled ? '✓' : item.from}
+                    {isInstalled ? <Check className="w-3.5 h-3.5" /> : item.from}
                   </span>
                 </div>
                 <h4 className="font-heading font-black text-sm uppercase leading-tight">{item.name}</h4>
@@ -242,13 +246,14 @@ export default function BunkerWorkbench({ soundEnabled }: BunkerWorkbenchProps) 
             <button
               onClick={handleLaunchFlare}
               disabled={!flareCrafted}
-              className={`px-8 py-4 font-heading font-black text-base sm:text-lg uppercase border-3 border-white transition-all ${
+              className={`px-8 py-4 font-heading font-black text-base sm:text-lg uppercase border-3 border-white transition-all inline-flex items-center gap-2.5 ${
                 flareCrafted
                   ? 'bg-[#ff4e00] hover:bg-[#e04500] text-sticker shadow-[6px_6px_0px_0px_#ffdc00] cursor-pointer animate-pulse'
                   : 'bg-slate-800 text-slate-500 border-slate-700 cursor-not-allowed opacity-60'
               }`}
             >
-              {flareCrafted ? `🚀 ${t.launchFlareBtn}` : t.flareAssemblePrompt}
+              {flareCrafted ? <Rocket className="w-5 h-5" /> : <Lock className="w-4 h-4" />}
+              {flareCrafted ? t.launchFlareBtn : t.flareAssemblePrompt}
             </button>
           )}
         </div>

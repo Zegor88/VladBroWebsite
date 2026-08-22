@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ShadowDetectorGame from './ShadowDetectorGame';
 import SurvivalQuiz from './SurvivalQuiz';
 import MonsterCreator from './MonsterCreator';
-import { Flashlight, BrainCircuit, PlusCircle } from 'lucide-react';
+import { Flashlight, BrainCircuit, PlusCircle, Gamepad2 } from 'lucide-react';
 import { playClickSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
 
@@ -24,8 +24,11 @@ export default function GamesHub({ soundEnabled, defaultGame = 'detector' }: Gam
     <div className="py-6 sm:py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto mb-8">
+        <div className="flex justify-center mb-2">
+          <Gamepad2 className="w-8 h-8 sm:w-10 sm:h-10" />
+        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
-          🎮 {t.gamesTitle}
+          {t.gamesTitle}
         </h2>
         <p className="text-slate-800 font-serif-story italic text-base sm:text-lg mt-2">
           {t.gamesSub}

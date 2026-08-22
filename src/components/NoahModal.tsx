@@ -1,4 +1,4 @@
-import { X, Plane, Radio, AlertOctagon } from 'lucide-react';
+import { X, Radio, AlertOctagon } from 'lucide-react';
 import noahImg from '../assets/images/noah_heli_scene_1787391787548.jpg';
 import { useLanguage } from '../i18n';
 import { playClickSound } from '../utils/soundEffects';
@@ -30,12 +30,6 @@ export default function NoahModal({ isOpen, onClose, soundEnabled = false }: Noa
         >
           <X className="w-5 h-5 font-black" />
         </button>
-
-        {/* Header Badge */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ff4e00] text-sticker text-xs font-mono-code font-black uppercase shadow-[2px_2px_0px_0px_#1a1a1a] mb-3">
-          <Plane className="w-4 h-4" />
-          <span>SECRET DOSSIER • NOAH&apos;S REFUGE</span>
-        </div>
 
         <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#1a1a1a] mb-4">
           {t.noahModalTitle}

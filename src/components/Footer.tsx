@@ -1,8 +1,9 @@
 import { useState, type FormEvent } from 'react';
-import { Terminal } from 'lucide-react';
+import { Terminal, Sparkles, ShieldAlert, BookOpen, Hammer, Gamepad2, History } from 'lucide-react';
 import { playClickSound, playCraftSound } from '../utils/soundEffects';
 import confetti from 'canvas-confetti';
 import { useLanguage } from '../i18n';
+import LogoMark from './LogoMark';
 
 interface FooterProps {
   onOpenDanceParty: () => void;
@@ -68,7 +69,9 @@ export default function Footer({
           {/* Col 1: About */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-2">
-              <span className="text-2xl p-1 bg-[#ffdc00] border-2 border-white shadow-[2px_2px_0px_0px_#fff]">👓</span>
+              <span className="p-1.5 bg-[#ffdc00] border-2 border-white shadow-[2px_2px_0px_0px_#fff] flex items-center justify-center">
+                <LogoMark className="w-5 h-5" />
+              </span>
               <span className="font-heading font-black text-2xl text-white tracking-tight uppercase">
                 SURVIVAL NIGHTS
               </span>
@@ -86,12 +89,12 @@ export default function Footer({
             <h4 className="font-heading font-black text-[#ffdc00] uppercase text-xs tracking-wider mb-3">
               {t.footerSections}:
             </h4>
-            <div><button onClick={() => onNavigate('home')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left">🌟 {t.navOverview}</button></div>
-            <div><button onClick={() => onNavigate('monsters')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left">🐙 {t.navMonsters}</button></div>
-            <div><button onClick={() => onNavigate('book')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left">📖 {t.navBook}</button></div>
-            <div><button onClick={() => onNavigate('bunker')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left">🛠️ {t.navBunker}</button></div>
-            <div><button onClick={() => onNavigate('games')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left">🎮 {t.navGames}</button></div>
-            <div><button onClick={() => onNavigate('devstory')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left">👨‍👦 {t.navDevStory}</button></div>
+            <div><button onClick={() => onNavigate('home')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5 flex-shrink-0" /> {t.navOverview}</button></div>
+            <div><button onClick={() => onNavigate('monsters')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left flex items-center gap-1.5"><ShieldAlert className="w-3.5 h-3.5 flex-shrink-0" /> {t.navMonsters}</button></div>
+            <div><button onClick={() => onNavigate('book')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5 flex-shrink-0" /> {t.navBook}</button></div>
+            <div><button onClick={() => onNavigate('bunker')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left flex items-center gap-1.5"><Hammer className="w-3.5 h-3.5 flex-shrink-0" /> {t.navBunker}</button></div>
+            <div><button onClick={() => onNavigate('games')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left flex items-center gap-1.5"><Gamepad2 className="w-3.5 h-3.5 flex-shrink-0" /> {t.navGames}</button></div>
+            <div><button onClick={() => onNavigate('devstory')} className="hover:text-[#ff4e00] transition-colors cursor-pointer text-left flex items-center gap-1.5"><History className="w-3.5 h-3.5 flex-shrink-0" /> {t.navDevStory}</button></div>
           </div>
 
           {/* Col 3: Secret Terminal Easter Egg */}
@@ -138,7 +141,9 @@ export default function Footer({
           </div>
           <div className="flex items-center gap-2 text-white font-bold">
             <span>{t.footerMotto}</span>
-            <span>👓✨</span>
+            <span className="p-0.5 bg-[#ffdc00] border border-white flex items-center justify-center">
+              <LogoMark className="w-3.5 h-3.5" />
+            </span>
           </div>
         </div>
 

@@ -108,10 +108,6 @@ export default function BunkerVaultModal({ isOpen, onClose, soundEnabled = false
             {!attempted ? (
               <div className="bg-[#182230] border-3 border-[#1a1a1a] p-5 sm:p-6 shadow-[6px_6px_0px_0px_#ff4e00] space-y-4">
                 <div className="space-y-1">
-                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#ffdc00] text-[#1a1a1a] text-[10px] font-mono-code font-black uppercase border border-[#1a1a1a]">
-                    <KeyRound className="w-3 h-3 text-[#ff4e00]" />
-                    <span>ELECTRO-KEYPAD</span>
-                  </div>
                   <h4 className="font-heading font-black text-lg sm:text-xl uppercase text-white">
                     {t.vaultDoorTitle}
                   </h4>
@@ -189,9 +185,6 @@ export default function BunkerVaultModal({ isOpen, onClose, soundEnabled = false
                 </div>
 
                 <div className="space-y-1.5">
-                  <span className="text-[10px] font-mono-code font-black text-[#ff8080] bg-[#3a1c1c] px-2 py-0.5 border border-[#ff4e00] uppercase">
-                    SEALED PROTOCOL • ACCESS RESTRICTED
-                  </span>
                   <h4 className="font-heading font-black text-xl sm:text-2xl uppercase text-[#ffdc00] pt-1">
                     {t.vaultAccessDeniedTitle}
                   </h4>

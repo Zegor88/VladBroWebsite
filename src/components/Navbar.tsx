@@ -3,6 +3,7 @@ import { Sparkles, ShieldAlert, BookOpen, Hammer, Gamepad2, History, Menu, X } f
 import { playClickSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
 import { LanguageSelector } from './LanguageSelector';
+import LogoMark from './LogoMark';
 
 interface NavbarProps {
   activeTab: string;
@@ -22,7 +23,7 @@ export default function Navbar({
 
   const navItems = [
     { id: 'home', label: t.navHome, icon: Sparkles },
-    { id: 'monsters', label: t.navMonsters, icon: ShieldAlert, badge: '🐙' },
+    { id: 'monsters', label: t.navMonsters, icon: ShieldAlert },
     { id: 'book', label: t.navBook, icon: BookOpen, badge: t.badge16Chapters },
     { id: 'bunker', label: t.navBunker, icon: Hammer },
     { id: 'games', label: t.navGames, icon: Gamepad2 },
@@ -46,8 +47,8 @@ export default function Navbar({
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-2 group text-left cursor-pointer transition-transform active:scale-95 flex-shrink-0"
           >
-            <div className="w-8 h-8 sm:w-9 sm:h-9 border-2 border-[#1a1a1a] bg-[#ffdc00] flex items-center justify-center text-lg sm:text-xl font-black shadow-[2px_2px_0px_0px_#1a1a1a] group-hover:rotate-6 transition-transform">
-              👓
+            <div className="w-8 h-8 sm:w-9 sm:h-9 border-2 border-[#1a1a1a] bg-[#ffdc00] flex items-center justify-center shadow-[2px_2px_0px_0px_#1a1a1a] group-hover:rotate-6 transition-transform">
+              <LogoMark className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div className="flex flex-col">
               <span className="text-[9px] font-mono-code font-black tracking-wider uppercase text-[#ff4e00] leading-none">

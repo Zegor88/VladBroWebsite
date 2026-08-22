@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Volume2, Flashlight, Lightbulb, ArrowRight } from 'lucide-react';
+import { Volume2, Flashlight, Lightbulb, ArrowRight, Check, Eye, Backpack, BookOpen } from 'lucide-react';
 import { playClickSound, playMonsterSound, playFlashlightSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
 import SafeImage from './SafeImage';
@@ -87,7 +87,7 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
               </div>
 
               <div className="mt-2 pt-2 border-t-2 border-current/20 flex items-center justify-between text-xs font-mono-code font-bold">
-                <span>{isSelected ? '✓' : t.openMonsterDossier}</span>
+                <span className="inline-flex items-center gap-1">{isSelected ? <Check className="w-3.5 h-3.5" /> : t.openMonsterDossier}</span>
                 <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
               </div>
             </button>
@@ -128,7 +128,7 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
             className="self-start sm:self-center px-4 py-3 bg-[#ffdc00] hover:bg-[#ffe633] text-[#1a1a1a] font-heading font-black text-xs sm:text-sm uppercase border-2 border-[#1a1a1a] shadow-[3px_3px_0px_0px_#1a1a1a] flex items-center gap-2 cursor-pointer transition-all active:translate-y-0.5"
           >
             <Volume2 className="w-4 h-4 text-[#ff4e00]" />
-            <span>{t.audioTestBtn} 🔊</span>
+            <span>{t.audioTestBtn}</span>
           </button>
         </div>
 
@@ -164,8 +164,8 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
             
             {/* Appearance */}
             <div className="bg-[#faf8f2] border-2 border-[#1a1a1a] p-4 shadow-[3px_3px_0px_0px_#1a1a1a]">
-              <span className="text-xs font-mono-code font-black text-[#ff4e00] block mb-1 uppercase">
-                👀 {t.appearanceLabel || t.threatTypeLabel}:
+              <span className="text-xs font-mono-code font-black text-[#ff4e00] mb-1 uppercase flex items-center gap-1.5">
+                <Eye className="w-3.5 h-3.5" /> {t.appearanceLabel || t.threatTypeLabel}:
               </span>
               <p className="text-slate-800 text-sm sm:text-base font-serif-story leading-relaxed mb-2">
                 {activeMonster.appearance}
@@ -187,7 +187,7 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
               <ul className="space-y-1.5 text-xs sm:text-sm text-slate-900 font-serif-story">
                 {activeMonster.weakness.map((w, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="text-[#2e7d32] font-black">✓</span>
+                    <Check className="w-4 h-4 text-[#2e7d32] flex-shrink-0 mt-0.5" />
                     <span className="font-bold">{w}</span>
                   </li>
                 ))}
@@ -196,8 +196,8 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
 
             {/* Loot */}
             <div className="bg-[#e0f7fa] border-2 border-[#1a1a1a] p-3.5 shadow-[3px_3px_0px_0px_#1a1a1a]">
-              <span className="text-xs font-mono-code font-black text-[#006064] block mb-0.5 uppercase">
-                🎒 {t.lootLabel}:
+              <span className="text-xs font-mono-code font-black text-[#006064] mb-0.5 uppercase flex items-center gap-1.5">
+                <Backpack className="w-3.5 h-3.5" /> {t.lootLabel}:
               </span>
               <p className="text-slate-900 text-xs sm:text-sm font-serif-story font-bold leading-relaxed">
                 {activeMonster.loot}
@@ -212,8 +212,8 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
           <div className="bg-[#1a1a1a] text-white p-5 border-3 border-[#1a1a1a] shadow-[5px_5px_0px_0px_#ff4e00] mb-6">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div>
-                <span className="text-xs font-mono-code font-black text-[#ffdc00] uppercase block">
-                  🔦 {t.shadowTitle}
+                <span className="text-xs font-mono-code font-black text-[#ffdc00] uppercase flex items-center gap-1.5">
+                  <Flashlight className="w-3.5 h-3.5" /> {t.shadowTitle}
                 </span>
                 <h4 className="font-heading font-black text-xl uppercase mt-0.5">
                   {t.shadowSub}
@@ -256,8 +256,8 @@ export default function MonsterGallery({ selectedMonsterId, soundEnabled }: Mons
 
         {/* Short Fun Story from Diary */}
         <div className="p-4 bg-[#fdfcf8] border-2 border-dashed border-[#1a1a1a]">
-          <span className="text-xs font-mono-code font-black text-[#ff4e00] uppercase block mb-1">
-            📖 {t.storySnippetLabel}:
+          <span className="text-xs font-mono-code font-black text-[#ff4e00] uppercase mb-1 flex items-center gap-1.5">
+            <BookOpen className="w-3.5 h-3.5" /> {t.storySnippetLabel}:
           </span>
           <p className="text-slate-800 font-serif-story italic text-sm sm:text-base leading-relaxed whitespace-pre-line">
             {activeMonster.storySnippet}

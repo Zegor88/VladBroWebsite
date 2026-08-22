@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { X, Sparkles, Gift, Volume2 } from 'lucide-react';
+import { X, Sparkles, Gift, Volume2, Check } from 'lucide-react';
 import { startDancePartyMusic, stopDancePartyMusic } from '../utils/soundEffects';
 import confetti from 'canvas-confetti';
 import { useLanguage } from '../i18n';
@@ -110,8 +110,8 @@ export default function DancePartyModal({ isOpen, onClose, soundEnabled }: Dance
                       : 'bg-[#ffdc00] hover:bg-[#ffe633] text-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a]'
                   }`}
                 >
-                  <Gift className="w-3 h-3" />
-                  <span>{isClaimed ? `${t.taken} ✓` : t.giftBtn}</span>
+                  {isClaimed ? <Check className="w-3 h-3" /> : <Gift className="w-3 h-3" />}
+                  <span>{isClaimed ? t.taken : t.giftBtn}</span>
                 </button>
               </div>
             );

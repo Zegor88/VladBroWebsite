@@ -1,4 +1,4 @@
-import { BookOpen, ArrowRight, Lock, KeyRound } from 'lucide-react';
+import { BookOpen, ArrowRight, Lock, KeyRound, Brain, Ghost, Rocket, ShieldAlert } from 'lucide-react';
 import { playClickSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
 import SafeImage from './SafeImage';
@@ -59,8 +59,8 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {/* Pillar 1 */}
           <div className="bg-white border-2 border-[#1a1a1a] p-4 shadow-[2px_2px_0px_0px_#1a1a1a]">
-            <div className="w-10 h-10 bg-[#ff4e00] text-white border-2 border-[#1a1a1a] flex items-center justify-center text-xl mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
-              🧠
+            <div className="w-10 h-10 bg-[#ff4e00] text-white border-2 border-[#1a1a1a] flex items-center justify-center mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
+              <Brain className="w-5 h-5" />
             </div>
             <h3 className="font-heading font-black text-xl text-[#1a1a1a] uppercase mb-2">
               {t.heroFeatures.mechanic}
@@ -72,8 +72,8 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
 
           {/* Pillar 2 */}
           <div className="bg-white border-2 border-[#1a1a1a] p-4 shadow-[2px_2px_0px_0px_#1a1a1a]">
-            <div className="w-10 h-10 bg-[#ffdc00] text-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center text-xl mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
-              🐙
+            <div className="w-10 h-10 bg-[#ffdc00] text-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
+              <Ghost className="w-5 h-5" />
             </div>
             <h3 className="font-heading font-black text-xl text-[#1a1a1a] uppercase mb-2">
               {t.heroFeatures.noHorror}
@@ -85,8 +85,8 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
 
           {/* Pillar 3 */}
           <div className="bg-white border-2 border-[#1a1a1a] p-4 shadow-[2px_2px_0px_0px_#1a1a1a]">
-            <div className="w-10 h-10 bg-[#00e5ff] text-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center text-xl mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
-              🚀
+            <div className="w-10 h-10 bg-[#00e5ff] text-[#1a1a1a] border-2 border-[#1a1a1a] flex items-center justify-center mb-3 shadow-[2px_2px_0px_0px_#1a1a1a]">
+              <Rocket className="w-5 h-5" />
             </div>
             <h3 className="font-heading font-black text-xl text-[#1a1a1a] uppercase mb-2">
               {t.heroFeatures.defense}
@@ -101,7 +101,7 @@ export default function HeroSection({ onNavigate, onOpenVaultDoor, soundEnabled 
         <div>
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-heading font-black text-xl sm:text-2xl text-[#1a1a1a] uppercase flex items-center gap-2">
-              <span>👾</span> {t.heroMonstersHeader}
+              <ShieldAlert className="w-5 h-5 sm:w-6 sm:h-6 text-[#ff4e00]" /> {t.heroMonstersHeader}
             </h3>
             <button
               onClick={() => handleNav('monsters')}

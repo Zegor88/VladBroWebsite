@@ -1,4 +1,4 @@
-import { Sparkles, MessageSquare, Code2, Compass } from 'lucide-react';
+import { Sparkles, MessageSquare, Code2, Compass, Check } from 'lucide-react';
 import heroVladBunkerImg from '../assets/images/hero_vlad_bunker_1787032082197.jpg';
 import { useLanguage } from '../i18n';
 import SafeImage from './SafeImage';
@@ -24,9 +24,6 @@ export default function DevStorySection({ soundEnabled }: { soundEnabled?: boole
           
           {/* Vlad's Speech */}
           <div className="lg:col-span-7 space-y-3.5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ff4e00] text-sticker text-xs font-mono-code font-black uppercase shadow-[2px_2px_0px_0px_#1a1a1a]">
-              {t.heroAuthorIntro} 👦👓
-            </div>
             <h3 className="font-heading font-black text-2xl sm:text-4xl text-[#1a1a1a] uppercase leading-tight">
               {t.heroAuthorTitle}
             </h3>
@@ -156,7 +153,7 @@ export default function DevStorySection({ soundEnabled }: { soundEnabled?: boole
               <ul className="space-y-1.5 text-xs sm:text-sm text-slate-800 font-mono-code font-bold">
                 {m.keyDecisions.map((d, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="text-[#ff4e00] font-black">✓</span>
+                    <Check className="w-4 h-4 text-[#ff4e00] flex-shrink-0 mt-0.5" />
                     <span>{d}</span>
                   </li>
                 ))}
@@ -175,10 +172,7 @@ export default function DevStorySection({ soundEnabled }: { soundEnabled?: boole
       {/* Tech Stack & Philosophy Box */}
       <div className="mt-12 bg-white border-3 border-[#1a1a1a] p-6 sm:p-8 max-w-4xl mx-auto shadow-[8px_8px_0px_0px_#1a1a1a] flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <span className="text-xs font-mono-code font-black bg-[#ffdc00] px-2 py-0.5 border border-[#1a1a1a] uppercase text-[#1a1a1a]">
-            {t.devStoryBadge}
-          </span>
-          <h4 className="font-heading font-black text-2xl text-[#1a1a1a] uppercase mt-2">
+          <h4 className="font-heading font-black text-2xl text-[#1a1a1a] uppercase">
             Godot 4 • WebGL & PC • Vibe-Coding
           </h4>
           <p className="text-slate-800 font-serif-story text-sm sm:text-base mt-2 max-w-xl leading-relaxed">

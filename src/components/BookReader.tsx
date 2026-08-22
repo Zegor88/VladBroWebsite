@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Bookmark, Share2, Check, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Bookmark, Share2, Check, ArrowRight, BookOpen, PenLine } from 'lucide-react';
 import { playClickSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
 import SafeImage from './SafeImage';
@@ -74,8 +74,11 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
     <section className="py-6 sm:py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto mb-8">
+        <div className="flex justify-center mb-2">
+          <BookOpen className="w-8 h-8 sm:w-10 sm:h-10" />
+        </div>
         <h2 className="font-heading font-black text-3xl sm:text-5xl text-[#1a1a1a] uppercase tracking-tight">
-          📖 {t.bookTitle}
+          {t.bookTitle}
         </h2>
         <p className="text-slate-800 font-serif-story italic text-base sm:text-lg mt-2">
           {t.bookSub}
@@ -216,8 +219,8 @@ export default function BookReader({ onOpenMonster, soundEnabled }: BookReaderPr
         {/* Geek Hand-Drawn Notebook Note / Blueprint */}
         <div className="mt-8 p-5 bg-[#faf8f2] border-2 border-dashed border-[#1a1a1a]">
           <div className="flex items-center justify-between border-b border-[#1a1a1a]/20 pb-2 mb-3">
-            <span className="text-xs font-mono-code font-black text-[#1a1a1a] uppercase">
-              ✏️ {t.marginNotes}: {chapter.geekDoodle.title}
+            <span className="text-xs font-mono-code font-black text-[#1a1a1a] uppercase flex items-center gap-1.5">
+              <PenLine className="w-3.5 h-3.5" /> {t.marginNotes}: {chapter.geekDoodle.title}
             </span>
           </div>
 

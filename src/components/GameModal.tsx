@@ -30,14 +30,8 @@ export default function GameModal({ isOpen, onClose, soundEnabled = false }: Gam
           <X className="w-5 h-5 font-black" />
         </button>
 
-        {/* Header Badge */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#00e5ff] text-[#1a1a1a] text-xs font-mono-code font-black uppercase shadow-[2px_2px_0px_0px_#000] mb-3">
-          <Gamepad2 className="w-4 h-4" />
-          <span>DEV LOG • GODOT 4 ENGINE</span>
-        </div>
-
-        <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#ffdc00] mb-3">
-          🎮 {t.gameModalTitle}
+        <h3 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#ffdc00] mb-3 flex items-start gap-2.5">
+          <Gamepad2 className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 mt-0.5" /> <span>{t.gameModalTitle}</span>
         </h3>
 
         <div className="p-4 bg-[#0e1622] border-2 border-[#00e5ff] shadow-[4px_4px_0px_0px_#000] space-y-3 mb-6">

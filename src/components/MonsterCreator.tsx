@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { CustomMonster } from '../types';
-import { Sparkles, Copy, Check, Wand2, BookOpen } from 'lucide-react';
+import { Sparkles, Copy, Check, Wand2, BookOpen, Lightbulb, Package } from 'lucide-react';
 import { playClickSound, playCraftSound } from '../utils/soundEffects';
 import { useLanguage } from '../i18n';
 
@@ -266,12 +266,12 @@ ${t.authorLabel}: ${monster.authorName || '---'}`;
               </div>
 
               <div className="p-3 bg-[#fff8cc] border-2 border-[#1a1a1a] shadow-[2px_2px_0px_0px_#1a1a1a]">
-                <span className="font-bold text-[#ff4e00] block text-[11px] uppercase">💡 {t.weaknessLabel}:</span>
+                <span className="font-bold text-[#ff4e00] text-[11px] uppercase flex items-center gap-1"><Lightbulb className="w-3 h-3" /> {t.weaknessLabel}:</span>
                 <p className="mt-0.5 text-[#1a1a1a] font-serif-story font-bold text-sm leading-relaxed">{monster.weakness || t.weaknessPlaceholder}</p>
               </div>
 
               <div className="p-3 bg-[#e8f5e9] border-2 border-[#2e7d32] shadow-[2px_2px_0px_0px_#1a1a1a]">
-                <span className="font-bold text-[#1b5e20] block text-[11px] uppercase">📦 {t.lootLabel}:</span>
+                <span className="font-bold text-[#1b5e20] text-[11px] uppercase flex items-center gap-1"><Package className="w-3 h-3" /> {t.lootLabel}:</span>
                 <p className="mt-0.5 text-[#1b5e20] font-serif-story font-bold text-sm leading-relaxed">{monster.loot || t.lootPlaceholder}</p>
               </div>
             </div>

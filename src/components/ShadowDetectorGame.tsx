@@ -165,7 +165,7 @@ export default function ShadowDetectorGame({ soundEnabled }: { soundEnabled: boo
             }`}
           >
             <Flashlight className="w-4 h-4" />
-            <span>{flashlightOn ? `🔦 ${t.spotlightOn}` : `💡 ${t.turnOnSpotlight}`}</span>
+            <span>{flashlightOn ? t.spotlightOn : t.turnOnSpotlight}</span>
           </button>
         </div>
 

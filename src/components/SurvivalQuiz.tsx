@@ -166,10 +166,7 @@ export default function SurvivalQuiz({ soundEnabled }: { soundEnabled: boolean }
             </div>
 
             <div>
-              <span className="text-xs font-mono-code bg-[#1a1a1a] text-white px-2.5 py-1 uppercase font-black tracking-wider">
-                {t.finalStatus}
-              </span>
-              <h3 className="font-heading font-black text-2xl sm:text-4xl text-[#1a1a1a] uppercase mt-3">
+              <h3 className="font-heading font-black text-2xl sm:text-4xl text-[#1a1a1a] uppercase">
                 {getRank().title}
               </h3>
               <p className="text-slate-800 font-serif-story italic text-base sm:text-lg mt-2 max-w-md mx-auto">
