@@ -1,4 +1,5 @@
 import { GameTranslations } from '../types';
+import { withSeasonOneChapters } from '../../data/seasonOneChapters';
 import mimicImg from '../../assets/images/monster_mimic_final_1787056451535.jpg';
 import krepImg from '../../assets/images/monster_krep_final_1787056466817.jpg';
 import wreckerImg from '../../assets/images/monster_wrecker_final_1787056479100.jpg';
@@ -431,7 +432,7 @@ Geek flattened into the wet moss and held his breath. Because he had showered an
       imageUrl: hunterImg,
     }
   ],
-  chapters: [
+  chapters: withSeasonOneChapters('en', [
     {
       id: 1,
       title: 'Plane Over the Island',
@@ -784,7 +785,7 @@ Geek flattened into the wet moss and held his breath. Because he had showered an
         handwrittenNote: 'The end of our first chapter... but new islands and adventures await!'
       }
     }
-  ],
+  ]),
   workbenchLevels: [
     {
       level: 1,

@@ -1,4 +1,5 @@
 import { GameTranslations } from '../types';
+import { withSeasonOneChapters } from '../../data/seasonOneChapters';
 import mimicImg from '../../assets/images/monster_mimic_final_1787056451535.jpg';
 import krepImg from '../../assets/images/monster_krep_final_1787056466817.jpg';
 import wreckerImg from '../../assets/images/monster_wrecker_final_1787056479100.jpg';
@@ -430,7 +431,7 @@ Gik se spustio na travu i zadržao dah. Pošto se ujutru istuširao, Lovac ga ni
       imageUrl: hunterImg,
     }
   ],
-  chapters: [
+  chapters: withSeasonOneChapters('sr', [
     {
       id: 1,
       title: 'Avion Iznad Ostrva',
@@ -783,7 +784,7 @@ Gik se spustio na travu i zadržao dah. Pošto se ujutru istuširao, Lovac ga ni
         handwrittenNote: 'Kraj prve priče... ali pred nama su nova ostrva i avanture!'
       }
     }
-  ],
+  ]),
   workbenchLevels: [
     {
       level: 1,

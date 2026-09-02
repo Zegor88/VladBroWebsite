@@ -4,6 +4,7 @@ import krepImg from '../../assets/images/monster_krep_final_1787056466817.jpg';
 import wreckerImg from '../../assets/images/monster_wrecker_final_1787056479100.jpg';
 import hunterImg from '../../assets/images/monster_hunter_final_1787056495352.jpg';
 import { MONSTERS, BOOK_CHAPTERS, WORKBENCH_LEVELS, DEV_MILESTONES, SURVIVAL_QUIZ } from '../../data/gameData';
+import { withSeasonOneChapters } from '../../data/seasonOneChapters';
 
 export const ruTranslations: GameTranslations = {
   ui: {
@@ -307,7 +308,7 @@ export const ruTranslations: GameTranslations = {
     mimicStoleSandwichTitle: 'МИМИК УКРАЛ ТВОЙ БУТЕРБРОД!',
   },
   monsters: MONSTERS,
-  chapters: BOOK_CHAPTERS,
+  chapters: withSeasonOneChapters('ru', BOOK_CHAPTERS),
   workbenchLevels: WORKBENCH_LEVELS,
   devMilestones: DEV_MILESTONES,
   quizQuestions: SURVIVAL_QUIZ,
