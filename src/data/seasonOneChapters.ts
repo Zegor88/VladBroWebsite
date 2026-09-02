@@ -1,5 +1,9 @@
 import { BookChapter } from '../types';
 import { RUSSIAN_SEASON_ONE_MANUSCRIPTS } from './seasonOneRussianManuscripts';
+import { ENGLISH_SEASON_ONE_PART_1 } from './seasonOneEnglishPart1';
+import { ENGLISH_SEASON_ONE_PART_2 } from './seasonOneEnglishPart2';
+import { SERBIAN_SEASON_ONE_PART_1 } from './seasonOneSerbianPart1';
+import { SERBIAN_SEASON_ONE_PART_2 } from './seasonOneSerbianPart2';
 
 type Language = 'ru' | 'en' | 'sr';
 type ChapterUpdate = Pick<BookChapter, 'title' | 'subtitle' | 'tag' | 'storyText'>;
@@ -72,7 +76,25 @@ const sr: ChapterUpdate[] = [
   { title: 'Zora nad ostrvom', subtitle: 'Spasavanje i nacrti za budućnost', tag: 'Poglavlje 16 • Finale', storyText: ['U zoru se iznad obale pojavljuje spasilački helikopter. Gik uzima beležnicu, pomaže saputniku u kabinu i prvi put odozgo vidi farmu, grad i kupolu Laboratorije.', 'Ono što je noću delovalo nemoguće sada je težak problem rešen nacrtima i zajedništvom. „Ostrvo je imalo anomalije, a mi smo imali svoje planove“, kaže Gik.'] },
 ];
 
-const editions: Record<Language, ChapterUpdate[]> = { ru: ruCanonical, en, sr };
+const fullManuscriptParagraphs = (manuscript: string): string[] =>
+  manuscript
+    .replace(/^# [^\n]+\n\n/, '')
+    .replaceAll('*', '')
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+const enCanonical: ChapterUpdate[] = en.map((chapter, index) => ({
+  ...chapter,
+  storyText: fullManuscriptParagraphs([...ENGLISH_SEASON_ONE_PART_1, ...ENGLISH_SEASON_ONE_PART_2][index]),
+}));
+
+const srCanonical: ChapterUpdate[] = sr.map((chapter, index) => ({
+  ...chapter,
+  storyText: fullManuscriptParagraphs([...SERBIAN_SEASON_ONE_PART_1, ...SERBIAN_SEASON_ONE_PART_2][index]),
+}));
+
+const editions: Record<Language, ChapterUpdate[]> = { ru: ruCanonical, en: enCanonical, sr: srCanonical };
 
 export function withSeasonOneChapters(language: Language, chapters: BookChapter[]): BookChapter[] {
   return chapters.map((chapter, index) => ({ ...chapter, ...editions[language][index] }));
