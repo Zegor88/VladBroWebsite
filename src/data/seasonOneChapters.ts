@@ -1,4 +1,5 @@
 import { BookChapter } from '../types';
+import { RUSSIAN_SEASON_ONE_MANUSCRIPTS } from './seasonOneRussianManuscripts';
 
 type Language = 'ru' | 'en' | 'sr';
 type ChapterUpdate = Pick<BookChapter, 'title' | 'subtitle' | 'tag' | 'storyText'>;
@@ -23,6 +24,15 @@ const ru: ChapterUpdate[] = [
   { title: 'Последняя ночь: The Final Stand', subtitle: 'Сигнал принят — держать оборону до рассвета', tag: 'Глава 15 • Кульминация', storyText: ['После ремонта люка Apex Flare взлетела с крыши и пробила зелёный купол ярким ионизированным светом. Через десять минут радио подтвердило: SOS принят, спасатели прилетят на рассвете.', 'Сигнал стянул к базе аномалии острова. Гик, питомец, прожекторы, датчики и укреплённый периметр встретили последнюю ночь как команда — спокойно и по заранее продуманному плану.'] },
   { title: 'Рассвет над островом', subtitle: 'Спасение и чертежи на будущее', tag: 'Глава 16 • Финал', storyText: ['С рассветом над побережьем появился спасательный вертолёт. Гик взял Блокнот, помог питомцу забраться в кабину и впервые увидел остров сверху: ферму, городок и купол Лаборатории.', 'То, что ночью казалось непреодолимой опасностью, при свете солнца оказалось сложной задачей, решённой чертежами и взаимной помощью. «У острова были свои аномалии, а у нас — свои чертежи», — сказал Гик.'] },
 ];
+
+const ruCanonical: ChapterUpdate[] = ru.map((chapter, index) => ({
+  ...chapter,
+  storyText: RUSSIAN_SEASON_ONE_MANUSCRIPTS[index]
+    .replaceAll('*', '')
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean),
+}));
 
 const en: ChapterUpdate[] = [
   { title: 'Plane Over the Island', subtitle: 'An emergency landing and a plan before sunset', tag: 'Chapter 1 • Beginning', storyText: ['Geek’s research plane is caught in an anomalous field over a green island. His damaged parachute gets him to South Beach, while his notebook, multitool, and pixel glasses survive.', 'With sunset close, he writes a simple plan: recover, check what matters, look around, and find shelter. Then he heads for the unknown jungle.'] },
@@ -62,7 +72,7 @@ const sr: ChapterUpdate[] = [
   { title: 'Zora nad ostrvom', subtitle: 'Spasavanje i nacrti za budućnost', tag: 'Poglavlje 16 • Finale', storyText: ['U zoru se iznad obale pojavljuje spasilački helikopter. Gik uzima beležnicu, pomaže saputniku u kabinu i prvi put odozgo vidi farmu, grad i kupolu Laboratorije.', 'Ono što je noću delovalo nemoguće sada je težak problem rešen nacrtima i zajedništvom. „Ostrvo je imalo anomalije, a mi smo imali svoje planove“, kaže Gik.'] },
 ];
 
-const editions: Record<Language, ChapterUpdate[]> = { ru, en, sr };
+const editions: Record<Language, ChapterUpdate[]> = { ru: ruCanonical, en, sr };
 
 export function withSeasonOneChapters(language: Language, chapters: BookChapter[]): BookChapter[] {
   return chapters.map((chapter, index) => ({ ...chapter, ...editions[language][index] }));
